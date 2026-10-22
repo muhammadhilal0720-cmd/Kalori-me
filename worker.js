@@ -147,7 +147,7 @@ export default {
     // 2) Cadangan: Cloudflare Workers AI
     if (env.AI) {
       const c = await askCloudflare(env, image, mime);
-      if (c.ok) return reply({ ...c.data, source: "cloudflare", fallbackReason: g.status });
+      if (c.ok) return reply({ ...c.data, source: "cloudflare", fallbackReason: g.status, fallbackDetail: g.detail || "" });
       return reply(
         {
           error: "Semua AI gagal",
